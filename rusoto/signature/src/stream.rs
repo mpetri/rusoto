@@ -84,6 +84,11 @@ impl ImplAsyncRead {
 }
 
 impl AsyncRead for ImplAsyncRead {
+    
+    unsafe fn prepare_uninitialized_buffer(&self, _buf: &mut [u8]) -> bool
+        true    
+    }
+
     fn poll_read(
         self: Pin<&mut Self>,
         cx: &mut Context<'_>,
